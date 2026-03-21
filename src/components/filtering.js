@@ -28,7 +28,6 @@ export function initFiltering(elements, indexes) {
       action.parentElement.querySelector("input").value = "";
       state[action.dataset.field] = "";
     }
-    // @todo: #4.5 — отфильтровать данные используя компаратор
     return data.filter(row => compare(row, state));
   };
 }
