@@ -28,11 +28,14 @@ const {data, ...indexes} = initData(sourceData);
  */
 function collectState() {
     const state = processFormData(new FormData(sampleTable.container));
+    const totalFrom = state.totalFrom === '' ? undefined : Number(state.totalFrom);
+    const totalTo = state.totalTo === '' ? undefined : Number(state.totalTo);
 const rowsPerPage = parseInt(state.rowsPerPage);    // приведём количество страниц к числу
 const page = parseInt(state.page ?? 1);                // номер страницы по умолчанию 1 и тоже число
 
 return {                                            // расширьте существующий return вот так
     ...state,
+    total: [totalFrom, totalTo],
     rowsPerPage,
     page
 };
