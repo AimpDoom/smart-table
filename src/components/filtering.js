@@ -20,7 +20,10 @@ export function initFiltering(elements, indexes) {
       }),
     );
   });
-  const compare = createComparison(defaultRules);
+  const compare = createComparison(
+    ['skipEmptyTargetValues', 'arrayAsRange', 'stringIncludes'],
+    []
+);
 
   return (data, state, action) => {
     // @todo: #4.2 — обработать очистку поля
